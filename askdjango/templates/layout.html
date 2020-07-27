@@ -8,10 +8,13 @@
 </head>
 <body>
     <h1>AskDjango Blog</h1>
+    {% if user.is_authenticated %}
+        {{ user }}
+    {% else %}
+        회원가입
+        <a href ="{% url "login" %}?next={{ request.path }}">로그인</a>
+    {% endif %}
 
-    회원가입
-    로그인
-    로그아웃
     <hr/>
 
     {% block content %}
