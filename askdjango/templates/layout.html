@@ -7,9 +7,11 @@
 
 </head>
 <body>
-    <h1>AskDjango Blog</h1>
+    <h1>
+        <a href="{% url "root" %}">AskDjango Blog</a>
+    </h1>
     {% if user.is_authenticated %}
-        {{ user }}
+        <a href="{% url "profile" %}">{{ user }}</a>
     {% else %}
         회원가입
         <a href ="{% url "login" %}?next={{ request.path }}">로그인</a>
